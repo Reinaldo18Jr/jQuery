@@ -1,18 +1,17 @@
-$(document).ready(function() {
-    const taskForm = $("#task-form");
-    const taskList = $("#lista-tarefa");
-
-    taskForm.submit(function(e) {
+$(document).ready(function(){
+    $('form').on('submit', function(e){
         e.preventDefault();
+        const nomeDaTarefa = $('input').val();
+        const novaTarefa = $(`<li>${nomeDaTarefa}</li>`);
 
-        const taskName = $("#nova-tarefa").val();
-
-        taskList.append("<li>" + taskName + "</li>");
-
-        $("#nova-tarefa").val("");
-
-        $("#lista-tarefa").click(function() {
-            $('<li style="text-decoration: line-through"></li>')
-        })
+        $(novaTarefa).appendTo('ul');
+        $('input').val('');
     })
+
+    $('ul').on('click', 'li', function(e){
+        e.preventDefault();
+        $(this).toggleClass('riscarTarefa');
     })
+
+
+})

@@ -49,3 +49,7 @@ ul li {
     text-align: center;
     font-size: 27px;
 }
+
+.riscarTarefa{
+    text-decoration: line-through;
+}
